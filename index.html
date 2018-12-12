@@ -3,25 +3,140 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   </head>
+  <header>
+     <button type="button">Click Me!</button>
+  </header>
   <body>
     <script>
-
       $(document).ready(function(){
         var $body = $('body');
         $body.html('');
 
+        var tweetButton = $('<section class="btn-container"></section>');
+        tweetButton.html("<button type=button class='btn-new-tweet'>Newest Tweets</button>");
+        tweetButton.appendTo($body);
+        
+        $('.btn-new-tweet').click(function(){
+          var index = streams.home.length - 1;
+          while(index >= 0){
+            var tweet = streams.home[index];
+
+            var $section = $('<section class="tweet-section group"></section>');
+            var $tweet = $('<p class="user"></p>');
+            $tweet.appendTo($section);
+
+            var $username = $('<button type=button class="btn-username username"></button>');
+            var $date = $("<h6 class='date'></h6>");
+            var $message = $("<h2 class='message'></h2>");
+            
+            $username.text('@' + tweet.user + ':');
+            $date.text('tweeted on ' + tweet.created_at);
+            $message.text(tweet.message);
+
+            $username.appendTo($tweet);
+            $message.appendTo($tweet);
+            $date.appendTo($tweet);
+               
+            $section.appendTo($body);
+            index -= 1    
+          }
+        });
+
         var index = streams.home.length - 1;
         while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
+            var tweet = streams.home[index];
 
+            var $section = $('<section class="tweet-section group"></section>');
+            var $tweet = $('<p class="user"></p>');
+            $tweet.appendTo($section);
+
+            var $username = $('<button type=button class="btn-username username"></button>');
+            var $date = $("<h6 class='date'></h6>");
+            var $message = $("<h2 class='message'></h2>");
+            
+            $username.text('@' + tweet.user + ':');
+            $date.text('tweeted on ' + tweet.created_at);
+            $message.text(tweet.message);
+
+            $username.appendTo($tweet);
+            $date.appendTo($tweet);
+            $message.appendTo($tweet);
+                   
+            $section.appendTo($body);
+            index -= 1
+          }
+//  --------- individual user tweets ---------  
+// --------------------------------------------
+          $('.btn-username').click(function(){
+
+//        -------- capture clicked user's name -------
+            var $tweeterName =  $(this,".btn-username").text();
+
+//          reset page for captured user's content
+            $body.html('');
+
+//        -------- set new tweet button again -------
+        var tweetButton = $('<section class="btn-container"></section>');
+        tweetButton.html("<button type=button class='btn-new-tweet'>Newest Tweets</button>");
+        tweetButton.appendTo($body);
+        
+        $('.btn-new-tweet').click(function(){
+          var index = streams.home.length - 1;
+          while(index >= 0){
+            var tweet = streams.home[index];
+
+            var $section = $('<section class="tweet-section group"></section>');
+            var $tweet = $('<p class="user"></p>');
+            $tweet.appendTo($section);
+
+            var $username = $('<button type=button class="btn-username username"></button>');
+            var $date = $("<h6 class='date'></h6>");
+            var $message = $("<h2 class='message'></h2>");
+            
+            $username.text('@' + tweet.user + ':');
+            $date.text('tweeted on ' + tweet.created_at);
+            $message.text(tweet.message);
+
+            $username.appendTo($tweet);
+            $message.appendTo($tweet);
+            $date.appendTo($tweet);
+            
+            $section.appendTo($body);
+            index -= 1       
+          }
+        });
+        
+//        -------- generate specific user's tweets -------
+            var index = streams.home.length - 1;
+             
+            while(index >= 0){
+                var tweet = streams.home[index];
+
+                var $section = $('<section class="tweet-section group"></section>');
+                var $tweet = $('<p class="user"></p>');
+
+                $tweet.appendTo($section);
+
+                var $tweeterButton = $('<button type=button class="btn-username username"></button>');
+                var $date = $("<h6 class='date'></h6>");
+                var $message = $("<h2 class='message'></h2>");
+
+                $tweeterButton.text($tweeterName);
+                $date.text('tweeted on ' + tweet.created_at);
+                $message.text(tweet.message);
+
+                $tweeterButton.appendTo($tweet);
+                $date.appendTo($tweet);
+                $message.appendTo($tweet);
+
+                $section.appendTo($body);
+                index -= 1
+            }
+          });
       });
-
     </script>
   </body>
 </html>

@@ -1,0 +1,242 @@
+/* ----------------- 
+   CSS RESET
+   -----------------
+*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* -----------------
+   END CSS RESET
+   -----------------
+*/
+
+
+/*  -----------------
+    CUSTOM STYLES
+    -----------------
+*/
+
+body {
+  background-image: url("photos/background.jpg");
+  background-repeat: repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top:0px;
+  left:0px;
+  width: 100%;
+  height: 100%;
+/* above is for background-image  */
+  background-color: #704b36;
+  box-sizing: border-box;
+  font-size: 20px;
+  font: 16px/22px Georgia, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #171767;
+}
+
+h1 {
+	font-size: 36px;
+	line-height: 44px;
+}
+
+h2 {
+	font-size: 24px;
+	line-height: 44px;
+}
+
+h3 {
+	font-size: 21px;
+}
+
+h5 {
+	font-size: 18px;
+}
+
+h6 {
+	font-size: 10px;
+	font-weight: 500;
+}
+
+strong {
+	font-weight: 400;
+}
+
+cite, em {
+	font-style: italic;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+
+/* -----------------
+   BUTTON STYLING
+   -----------------
+*/
+
+.btn-container {
+	display: block;
+	max-width: auto;
+	margin: 0;
+}
+
+.btn-new-tweet {
+    position: fixed;
+    padding: 15px 5px;
+    top: 0;
+    width: 250px;
+ /* above makes the btn stay in place	 */
+	text-transform: uppercase;
+	text-shadow: 0px 2px 11px #d3ff5e;
+	display: block;
+	background-color: rgb(57, 106, 208, .9);
+	margin: 10px 20px;
+	font-size: 18px;
+	font-weight: 800;
+	border: 0; 
+	border-radius: 100px;
+	cursor: pointer;
+	color: #fff;
+	text-shadow: -3px 3px 6px black;
+	box-shadow: -1px 5px 8px black;
+}
+
+.btn-new-tweet:hover {
+	background-color: rgba(23, 85, 216, 0.9);
+}
+
+.btn-username {
+	background-color: rgba(164, 174, 183, 0.2);
+    width: 20%;
+    border: 1px;
+    height: 30px;
+	text-align: left;
+}
+
+button:focus {
+  outline:0;
+}
+
+
+
+/* -----------------
+   TWEET BOX STYLING 
+   -----------------
+*/
+
+.tweet-section {
+	display: flex;
+	margin: 0;
+	justify-content: center;
+}
+
+.tweet-section .user {
+  background-color: rgb(164, 174, 183, .9);
+/*   font-family: 'Raleway', sans-serif; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 10px 15px;
+  border-right: 7px solid #343f44;; 
+  border-left: 7px solid #343f44;
+  border-bottom: 3px solid #343f44;
+  border-top: 3px solid #343f44;	
+  border-radius: 10px;
+  flex-basis: 45%;
+}
+
+.username {
+	position: absolute;
+	font: 18px/22px Georgia, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: hsla(240, 63%, 25%, .5);
+	padding-bottom: 15px;
+	cursor: pointer;
+	z-index: 2;
+}
+
+/* p {
+	font-weight: 700px;
+	font: 18px/22px Georgia, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: hsla(240, 63%, 25%, .5);
+} */
+
+.date {
+	position: absolute;
+	padding-top: 20px;
+	font: 10px/22px Georgia, "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	z-index: 1;
+	color: #171767;
+}
+
+.message {
+	font-family: 'Raleway', sans-serif;
+	padding-top:40px;
+	align-self: center;
+	align-text: center;
+	font-weight: 600;
+	color: #171767;
+	text-shadow: 3px 3px 13px black;
+	text-shadow: 0 0 black;
+	text-shadow: 0px 0px 0px black;
+}
+
+
+/*  -----------------
+    CLEARFIX
+    -----------------
+*/
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
